@@ -1,51 +1,65 @@
-let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-renderList();
+let totalExpenses = 0;
 
-document.getElementById("addBtn").onclick = () => {
-    let title = document.getElementById("title").value;
-    let amount = Number(document.getElementById("amount").value);
-    let date = document.getElementById("date").value;
-    let category = document.getElementById("category").value;
+const salaryInput = document.getElementById("salaryInput");
+const totalSpentDisplay = document.getElementById("totalSpent");
+const totalSavedDisplay = document.getElementById("totalSaved");
+const list = document.getElementById("list");
+const addBtn = document.getElementById("addBtn");
+
+function updateTotals() {
+    const salary = Number(salaryInput.value);
+
+    // Update spent panel
+    totalSpentDisplay.textContent = "₹" + totalExpenses.toFixed(2);
+
+    // Update saved panel
+    if (salary > 0) {
+        const saved = salary - totalExpenses;
+        totalSavedDisplay.textContent = "₹" + saved.toFixed(2);
+    } else {
+        totalSavedDisplay.textContent = "₹0";
+    }
+}
+
+function addExpense() {
+    const title = document.getElementById("title").value;
+    const amount = Number(document.getElementById("amount").value);
+    const date = document.getElementById("date").value;
+    const category = document.getElementById("category").value;
 
     if (!title || !amount || !date) {
-        alert("Please fill all fields cutie");
+        alert("Please fill all fields 🌸");
         return;
     }
 
-    let exp = { title, amount, date, category };
-    expenses.push(exp);
-    localStorage.setItem("expenses", JSON.stringify(expenses));
+    // Add to total
+    totalExpenses += amount;
+    updateTotals();
 
-    renderList();
-};
+    // Create card
+    const card = document.createElement("div");
+    card.className = "expense-card";
+    card.innerHTML = `
+        <strong>${title}</strong> — ₹${amount}<br>
+        <small>${date} | ${category}</small>
+        <span class="delete">❌</span>
+    `;
 
-function renderList() {
-    let list = document.getElementById("list");
-    list.innerHTML = "";
-
-    let total = 0;
-
-    expenses.forEach((e, index) => {
-        total += e.amount;
-
-        let card = document.createElement("div");
-        card.className = "expense-card";
-
-        card.innerHTML = `
-            <div><b>${e.title}</b> — ₹${e.amount}</div>
-            <div>${e.category}</div>
-            <div>${e.date}</div>
-            <div class="delete" onclick="deleteExp(${index})">❌</div>
-        `;
-
-        list.appendChild(card);
+    // Delete expense
+    card.querySelector(".delete").addEventListener("click", () => {
+        totalExpenses -= amount;
+        updateTotals();
+        card.remove();
     });
 
-    document.getElementById("total").innerText = "₹" + total;
+    list.appendChild(card);
+
+    // Clear fields
+    document.getElementById("title").value = "";
+    document.getElementById("amount").value = "";
+    document.getElementById("date").value = "";
 }
 
-function deleteExp(i) {
-    expenses.splice(i, 1);
-    localStorage.setItem("expenses", JSON.stringify(expenses));
-    renderList();
-}
+// Event listeners
+addBtn.addEventListener("click", addExpense);
+salaryInput.addEventListener("input", updateTotals);
