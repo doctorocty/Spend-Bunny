@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="title">🌸 Spend Bunny 🌸</h1>
+
+    <div class="total-box">Total Spent: <span id="total">₹0</span> ✨</div>
+
+    <div class="form">
+        <input type="text" id="title" placeholder="Expense Title 🌼">
+        <input type="number" id="amount" placeholder="Amount 💸">
+        <input type="date" id="date">
+        <select id="category">
+            <option value="Food">🍔 Food</option>
+            <option value="Shopping">🎀 Shopping</option>
+            <option value="Travel">🚗 Travel</option>
+            <option value="Other">🧁 Other</option>
+        </select>
+        <button id="addBtn">Add Expense 💖</button>
+    </div>
+
+    <div id="list"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

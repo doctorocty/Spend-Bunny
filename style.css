@@ -1,0 +1,74 @@
+body {
+    background: #ffeef8;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+}
+
+.title {
+    margin-top: 20px;
+    font-size: 2.2rem;
+    color: #ff7ac4;
+}
+
+.total-box {
+    background: #ffccf5;
+    padding: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 1.3rem;
+    color: #d6007f;
+    box-shadow: 0 0 10px #ffb7eb;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form input, .form select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ffb7eb;
+    background: #fff;
+    font-size: 1rem;
+}
+
+button {
+    background: #ff7ac4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 1rem;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #ff52b2;
+}
+
+.expense-card {
+    background: #ffffff;
+    border: 2px solid #ffd2f6;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px auto;
+    width: 320px;
+    text-align: left;
+    box-shadow: 0 0 10px #ffaee6;
+    position: relative;
+}
+
+.delete {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    color: #ff52b2;
+    font-weight: bold;
+}
