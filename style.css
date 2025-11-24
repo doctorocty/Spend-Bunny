@@ -12,17 +12,6 @@ body {
     color: #ff7ac4;
 }
 
-.total-box {
-    background: #ffccf5;
-    padding: 15px;
-    border-radius: 15px;
-    display: inline-block;
-    margin: 20px 0;
-    font-size: 1.3rem;
-    color: #d6007f;
-    box-shadow: 0 0 10px #ffb7eb;
-}
-
 .form {
     display: flex;
     justify-content: center;
@@ -41,43 +30,42 @@ body {
 }
 
 .summary-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-  gap: 10px;
-  margin-bottom: 25px;   /* ⬅ adds space below */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px;
+    margin-bottom: 25px;
 }
 
-
 .summary-box {
-  flex: 1;
-  padding: 12px 15px;      /* thinner padding */
-  border-radius: 14px;     /* smaller curve */
-  text-align: center;
-  font-size: 16px;         /* smaller text */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* softer shadow */
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .summary-box h3 {
-  margin-bottom: 6px;
-  font-size: 16px;         /* thinner heading */
+    margin-bottom: 6px;
+    font-size: 16px;
 }
 
 .summary-box p {
-  font-size: 20px;         /* smaller number text */
-  font-weight: 600;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .spent {
-  background: #ffe0e6;
-  color: #d6336c;
-  border: 1px solid #ffb3c6;   /* thinner border */
+    background: #ffe0e6;
+    color: #d6336c;
+    border: 1px solid #ffb3c6;
 }
 
 .saved {
-  background: #e8ffe8;
-  color: #2e8b57;
-  border: 1px solid #b3ffcc;   /* thinner border */
+    background: #e8ffe8;
+    color: #2e8b57;
+    border: 1px solid #b3ffcc;
 }
 
 button {
@@ -94,6 +82,24 @@ button {
 button:hover {
     transform: scale(1.05);
     background: #ff52b2;
+}
+
+.salary-box {
+    background: #fff;
+    border: 2px solid #ffd2f6;
+    border-radius: 15px;
+    padding: 15px;
+    width: 90%;
+    max-width: 350px;
+    margin: 10px auto 15px;
+    box-shadow: 0 0 10px #ffaee6;
+}
+
+.salary-box input {
+    width: 90%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ffb7eb;
 }
 
 .expense-card {
@@ -118,174 +124,71 @@ button:hover {
     font-weight: bold;
 }
 
-/* GIF container: no background, no padding */
-.gif-container {
-  margin: 0;
-  padding: 0;
-  background: transparent !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Show the GIF with no decorations */
 .cat-gif {
-  width: 300px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 15px auto;
 }
 
-
-@media (max-width: 600px) {
-    .title {
-        font-size: 1.7rem;
-    }
-
-    .cute-gif {
-        width: 90%;
-    }
-}
-
-/* --------------------------------------------
-   TRUE RESPONSIVENESS — KEEPING YOUR LAYOUT
-   -------------------------------------------- */
-
-.container {
-    width: 95%;
-    margin: auto;
-}
-
-/* Make summary boxes stack on small screens */
+/* -------------------------------
+   📱 MOBILE ONLY FIX — EXACT LIKE YOUR SCREENSHOT
+--------------------------------*/
 @media (max-width: 600px) {
 
-    .summary-container {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-    }
-
-    .summary-box {
-        width: 100%;
-        font-size: 15px;
-        padding: 14px;
-    }
-
-    .summary-box p {
-        font-size: 18px;
-    }
-
-    /* Form inputs stack neatly */
     .form {
-        flex-direction: column;
-        align-items: center;
+        display: block;
+        width: 100%;
+        padding: 0 15px;
     }
 
     .form input,
     .form select {
-        width: 90%;
-        max-width: 320px;
-        font-size: 0.95rem;
-    }
-
-    /* Fix button size */
-    button {
-        width: 90%;
-        max-width: 330px;
+        width: 100%;
+        margin: 8px 0;
         font-size: 1rem;
+        padding: 14px;
+        box-sizing: border-box;
     }
 
-    /* Expense cards scale better */
-    .expense-card {
-        width: 92%;
-        max-width: none;
-        font-size: 0.95rem;
-    }
-
-    /* GIF scales */
-    .cat-gif {
-        width: 80%;
-        max-width: 260px;
-    }
-
-    /* Title scales */
-    .title {
-        font-size: 1.8rem;
-    }
-}
-
-/* Even smaller phones */
-@media (max-width: 400px) {
-
-    .title {
-        font-size: 1.5rem;
-    }
-
-    .summary-box h3 {
-        font-size: 14px;
-    }
-
-    .summary-box p {
-        font-size: 17px;
-    }
-
-    .form input,
-    .form select {
-        width: 95%;
-    }
-
-    button {
-        width: 95%;
-    }
-}
-
-/* -----------------------------------
-   📱 MOBILE ONLY FIXES (DESKTOP UNCHANGED)
---------------------------------------*/
-@media (max-width: 600px) {
-
-    /* Make summary boxes stack */
     .summary-container {
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        gap: 18px;
+        padding: 0 15px;
     }
 
     .summary-box {
-        width: 90%;
-        max-width: 350px;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 20px;
     }
 
-    /* Inputs full width */
-    .form input,
-    .form select {
-        width: 90%;
-        max-width: 350px;
-    }
-
-    /* Salary box full width */
     .salary-box {
-        width: 90%;
-        max-width: 350px;
-        margin: auto;
+        width: 100%;
+        padding: 20px;
+        margin-top: 15px;
+        box-sizing: border-box;
     }
 
-    /* Make the Add Expense button full width */
     button {
-        width: 90%;
-        max-width: 350px;
+        width: 100%;
+        padding: 15px;
+        margin-top: 10px;
+        font-size: 1.1rem;
+        border-radius: 14px;
+        box-sizing: border-box;
     }
 
-    /* Expense cards stay clean */
     .expense-card {
         width: 90%;
-        max-width: 350px;
+        margin: 12px auto;
+        box-sizing: border-box;
     }
 
-    /* Video / GIF scales on phone */
     .cat-gif {
-        width: 80%;
+        width: 70%;
         max-width: 260px;
+        margin-top: 10px;
     }
 }
-
