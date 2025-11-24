@@ -146,3 +146,95 @@ button:hover {
         width: 90%;
     }
 }
+
+/* --------------------------------------------
+   TRUE RESPONSIVENESS — KEEPING YOUR LAYOUT
+   -------------------------------------------- */
+
+.container {
+    width: 95%;
+    margin: auto;
+}
+
+/* Make summary boxes stack on small screens */
+@media (max-width: 600px) {
+
+    .summary-container {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .summary-box {
+        width: 100%;
+        font-size: 15px;
+        padding: 14px;
+    }
+
+    .summary-box p {
+        font-size: 18px;
+    }
+
+    /* Form inputs stack neatly */
+    .form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form input,
+    .form select {
+        width: 90%;
+        max-width: 320px;
+        font-size: 0.95rem;
+    }
+
+    /* Fix button size */
+    button {
+        width: 90%;
+        max-width: 330px;
+        font-size: 1rem;
+    }
+
+    /* Expense cards scale better */
+    .expense-card {
+        width: 92%;
+        max-width: none;
+        font-size: 0.95rem;
+    }
+
+    /* GIF scales */
+    .cat-gif {
+        width: 80%;
+        max-width: 260px;
+    }
+
+    /* Title scales */
+    .title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Even smaller phones */
+@media (max-width: 400px) {
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .summary-box h3 {
+        font-size: 14px;
+    }
+
+    .summary-box p {
+        font-size: 17px;
+    }
+
+    .form input,
+    .form select {
+        width: 95%;
+    }
+
+    button {
+        width: 95%;
+    }
+}
