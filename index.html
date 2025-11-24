@@ -11,8 +11,6 @@
 
     <h1 class="title">🌸 Spend Bunny 🌸</h1>
 
-    <!-- REMOVED old total spent box -->
-
     <div class="summary-container">
         <div class="summary-box spent">
             <h3>Total Spent</h3>
@@ -28,8 +26,14 @@
     <div class="form">
         <input type="text" id="title" placeholder="Expense Title 🌼">
         <input type="number" id="amount" placeholder="Amount 💸">
-        <input type="date" id="date">
-
+        
+        <input 
+            type="text" 
+            id="date" 
+            placeholder="dd/mm/yyyy" 
+            onfocus="this.type='date'" 
+            onblur="if(!this.value) {this.type='text'}"
+        >
         <select id="category">
             <option value="Food">🍔 Food</option>
             <option value="Shopping">🎀 Shopping</option>
