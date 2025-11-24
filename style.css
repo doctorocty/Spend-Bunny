@@ -154,37 +154,46 @@ button:hover {
 
 /* ======================================================= */
 /* 📱 MEDIA QUERY: Mobile View (Screen width 480px or less) */
-/* THIS IS WHERE WE FORCE THE STACKING AND 100% WIDTH */
 /* ======================================================= */
 @media (max-width: 480px) {
     body {
         /* Add general padding for the edges of the phone screen */
         padding: 0 15px;
+        /* Ensure the body is not constrained */
+        min-width: 100%;
+        max-width: 100%;
     }
 
     .title {
         font-size: 1.8rem;
     }
-    
+
     /* Summary containers: Allow full width flow */
     .summary-container {
         max-width: 100%;
         padding: 0;
     }
 
-    /* Force Form to stack vertically */
+    /* Summary boxes should take equal width */
+    .summary-box {
+        flex: 1;
+    }
+
+    /* --- FORM SECTION: Force Stacking and Full Width --- */
     .form {
+        /* 1. Force items to stack vertically */
         flex-direction: column; 
-        align-items: center; /* Center horizontally for symmetry */
+        align-items: center; 
         gap: 15px;
         padding: 0;
-        width: 100%; /* Ensure form container itself is full width */
+        /* 2. Ensure the form container uses the full screen width */
+        width: 100%; 
         max-width: none;
     }
 
     .form input, .form select {
-        /* Make all expense inputs full width on phone */
-        width: 100% !important; /* Using !important to ensure override */
+        /* 3. CRUCIAL: Override fixed width to be full width */
+        width: 100% !important; 
         box-sizing: border-box; 
     }
     
@@ -195,8 +204,8 @@ button:hover {
     }
 
     #salaryInput {
-        /* Make salary input full width on phone */
-        width: 100% !important; /* Using !important to ensure override */
+        /* CRUCIAL: Override fixed width to be full width */
+        width: 100% !important; 
         box-sizing: border-box;
     }
 
@@ -204,5 +213,10 @@ button:hover {
     button {
         width: 100% !important;
         box-sizing: border-box;
+    }
+
+    .cat-gif {
+        max-width: 100%;
+        width: 250px; /* Keep the gif slightly smaller but responsive */
     }
 }
