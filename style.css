@@ -189,7 +189,7 @@ button:hover {
     
     .salary-box label {
         /* Make label left-aligned for a cleaner stacked look */
-        text-align: left !important;
+        text-align: center !important;
     }
 
     #salaryInput {
