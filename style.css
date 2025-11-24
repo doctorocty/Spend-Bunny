@@ -5,7 +5,7 @@ body {
     background: #ffeef8;
     font-family: "Poppins", sans-serif;
     text-align: center;
-    margin: 0; /* Removing auto margin for default (laptop) */
+    margin: 0;
     padding: 0;
 }
 
@@ -15,26 +15,7 @@ body {
     color: #ff7ac4;
 }
 
-/* The total-box class was removed in index.html, so I've removed it here. */
-
-.form {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 0 10px;
-}
-
-.form input, .form select {
-    padding: 12px;
-    border-radius: 10px;
-    border: 2px solid #ffb7eb;
-    background: #fff;
-    font-size: 1rem;
-    /* Laptop fixed width */
-    width: 200px;
-}
-
+/* --- Summary Boxes (Laptop Centered) --- */
 .summary-container {
   display: flex;
   justify-content: space-between;
@@ -79,6 +60,50 @@ body {
   border: 1px solid #b3ffcc;
 }
 
+/* --- Form/Input Section (Original Laptop Flow) --- */
+.form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+.form input, .form select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ffb7eb;
+    background: #fff;
+    font-size: 1rem;
+    /* Laptop fixed width */
+    width: 200px;
+}
+
+.salary-box {
+    /* Centered block for laptop view */
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.salary-box h2 {
+    color: #ff7ac4;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.salary-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #d6007f;
+}
+
+#salaryInput {
+    /* Laptop fixed width */
+    width: 200px;
+}
+
 button {
     background: #ff7ac4;
     color: white;
@@ -97,6 +122,7 @@ button:hover {
     background: #ff52b2;
 }
 
+/* --- Expense List Card --- */
 .expense-card {
     background: #ffffff;
     border: 2px solid #ffd2f6;
@@ -119,7 +145,6 @@ button:hover {
     font-weight: bold;
 }
 
-/* Removed redundant gif-container class */
 .cat-gif {
   width: 300px;
   height: auto;
@@ -129,40 +154,41 @@ button:hover {
 
 /* ======================================================= */
 /* 📱 MEDIA QUERY: Mobile View (Screen width 480px or less) */
+/* THIS IS WHERE WE FORCE THE STACKING AND 100% WIDTH */
 /* ======================================================= */
 @media (max-width: 480px) {
     body {
-        /* Add general padding on phone and remove max-width constraints */
+        /* Add general padding for the edges of the phone screen */
         padding: 0 15px;
     }
 
     .title {
         font-size: 1.8rem;
     }
-
-    /* Summary Containers: allow full width of the padded body */
+    
+    /* Summary containers: Allow full width flow */
     .summary-container {
         max-width: 100%;
         padding: 0;
     }
 
-    /* Form: Force all elements to stack vertically and take full width */
+    /* Force Form to stack vertically */
     .form {
-        flex-direction: column; /* Stack vertically */
-        align-items: center;
+        flex-direction: column; 
+        align-items: center; /* Center horizontally for symmetry */
         gap: 15px;
         padding: 0;
-        /* Align inputs to the center of the screen */
-        max-width: 100%; 
+        width: 100%; /* Ensure form container itself is full width */
+        max-width: none;
     }
 
     .form input, .form select {
         /* Make all expense inputs full width on phone */
-        width: 100%;
-        box-sizing: border-box; /* Crucial for full-width sizing */
+        width: 100% !important; /* Using !important to ensure override */
+        box-sizing: border-box; 
     }
-
-    /* Salary Box: Ensure salary section is full width */
+    
+    /* Ensure the Salary Box section is full width */
     .salary-box {
         width: 100%; 
         margin: 0;
@@ -170,13 +196,13 @@ button:hover {
 
     #salaryInput {
         /* Make salary input full width on phone */
-        width: 100%;
+        width: 100% !important; /* Using !important to ensure override */
         box-sizing: border-box;
     }
 
     /* Button: Make button full width for easy tapping */
     button {
-        width: 100%;
+        width: 100% !important;
         box-sizing: border-box;
     }
 }
