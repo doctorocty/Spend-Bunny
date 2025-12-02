@@ -108,18 +108,17 @@ function displayFormError(message) {
 //WAIT FOR USER LOGIN 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    // LOGGED OUT STATE
     authBtn.textContent = "Sign In / Sign Up";
     authBtn.onclick = () => { window.location.href = "signin.html"; };
+
+    welcomeText.textContent = ""; 
+    window.location.href = "signin.html";
+    return;
+}
+
     
     welcomeText.textContent = ""; 
 
-    // Redirect to signin if user is on index.html but not logged in
-    if (!window.location.pathname.includes('signin.html') && !window.location.pathname.includes('signup.html')) {
-        window.location.href = "signin.html";
-    }
-    return;
-  }
 
   // LOGGED IN STATE
   currentUser = user;
