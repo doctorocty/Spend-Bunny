@@ -109,7 +109,7 @@ function displayFormError(message) {
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     // User not signed in — app still works normally
-    authBtn.textContent = "Sign In / Sign Up";
+    authBtn.textContent = "Sign In";
     authBtn.onclick = () => { window.location.href = "signin.html"; };
 
     welcomeText.textContent = "";
