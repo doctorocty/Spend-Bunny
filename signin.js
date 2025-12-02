@@ -28,3 +28,28 @@ signinBtn.addEventListener("click", async () => {
     alert("Sign in failed. Check your email/password or sign up first.");
   }
 });
+
+import { resetPassword } from "./firebase.js";
+
+const forgotPassBtn = document.getElementById("forgotPassBtn");
+
+forgotPassBtn.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+
+  if (!email) {
+    alert("Enter your email first so I can send the reset link 💌");
+    return;
+  }
+
+  try {
+    await resetPassword(email);
+
+    alert("Reset link has been sent to your email! ");
+  } catch (err) {
+    console.error(err);
+    alert("Couldn't send reset email. Make sure the email is correct.");
+  }
+});
+

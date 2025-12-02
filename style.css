@@ -1,6 +1,3 @@
-/* ======================================================= */
-/* DEFAULT STYLES (Laptop Layout) */
-/* ======================================================= */
 body {
     background: #ffeef8;
     font-family: "Poppins", sans-serif;
@@ -15,7 +12,7 @@ body {
     color: #ff7ac4;
 }
 
-/* Summary Boxes (Laptop Centered) */
+/* Summary Boxes */
 .summary-container {
   display: flex;
   justify-content: space-between;
@@ -58,7 +55,7 @@ body {
   border: 1px solid #b3ffcc;
 }
 
-/* Form/Input Section (Original Laptop Flow) */
+/* Form/Input Section */
 .form {
     display: flex;
     justify-content: center;
@@ -145,7 +142,6 @@ button:hover {
   margin: 0 auto;
 }
 
-/* --- New Styles for Sign In Button --- */
 .top-left-btn {
     position: absolute;
     top: 20px;
@@ -161,12 +157,9 @@ button:hover {
     cursor: pointer;
 }
 
-/* ======================================================= */
-/* 📱 MEDIA QUERY: Mobile View (Screen width 480px or less) */
-/* ======================================================= */
 @media (max-width: 480px) {
     body {
-        padding: 0 20px; /* Padding for the edges */
+        padding: 0 20px; 
         min-width: 100%;
     }
 
@@ -174,7 +167,6 @@ button:hover {
         font-size: 1.8rem;
     }
 
-    /* Adjust button position for mobile */
     .top-left-btn {
         top: 10px;
         left: 10px;
@@ -182,17 +174,16 @@ button:hover {
         font-size: 0.8rem;
     }
 
-    /* Summary containers: Allow full width flow */
+    /* Summary containers: */
     .summary-container {
         max-width: 100%;
         padding: 0;
     }
 
-    /* --- FORM SECTION: Force Stacking and Full Width --- */
+    /* FORM SECTION */
     .form {
-        /* 1. Force items to stack vertically */
         flex-direction: column !important; 
-        align-items: stretch !important; /* Stretch to fill the container width */
+        align-items: left !important; 
         gap: 15px;
         padding: 0;
         width: 100%; 
@@ -200,31 +191,31 @@ button:hover {
     }
 
     .form input, .form select {
-        /* 2. CRUCIAL: Override fixed width to be full width */
         width: 100% !important; 
         box-sizing: border-box; 
     }
     
-    /* Ensure the Salary Box section is full width */
     .salary-box {
         width: 100%; 
         margin: 0;
     }
     
     .salary-box label {
-        /* Make label left-aligned for a cleaner stacked look */
         text-align: center !important;
     }
 
     #salaryInput {
-        /* CRUCIAL: Override fixed width to be full width */
         width: 100% !important; 
         box-sizing: border-box;
     }
 
-    /* Button: Make button full width for easy tapping */
+    /* Button */
     button {
         width: 100% !important;
         box-sizing: border-box;
     }
+}
+#welcomeText {
+    color: #ff58b5;   
+    font-weight: 600;
 }
