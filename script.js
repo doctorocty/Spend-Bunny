@@ -108,11 +108,30 @@ function displayFormError(message) {
 //WAIT FOR USER LOGIN 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
+    // User not signed in — app still works normally
     authBtn.textContent = "Sign In / Sign Up";
     authBtn.onclick = () => { window.location.href = "signin.html"; };
 
-    welcomeText.textContent = ""; 
-    window.location.href = "signin.html";
+    welcomeText.textContent = "";
+
+    // Load from local storage instead of Firestore
+    const localData = JSON.parse(localStorage.getItem("guestData") || "{}");
+
+    salary = localData.salary || 0;
+    expenses = localData.expenses || [];
+
+    salaryInput.value = salary;
+
+    list.innerHTML = "";
+    totalExpenses = 0;
+
+    expenses.forEach(exp => {
+        createExpenseCard(exp.title, exp.amount, exp.date, exp.category, false);
+        totalExpenses += exp.amount;
+    });
+
+    updateTotals();
+
     return;
 }
 
