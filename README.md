@@ -1,92 +1,192 @@
-Spend Bunny is a lightweight, browser-based expense tracker designed to help users manage and visualize their daily spending. It uses Firebase Authentication to handle sign-in/sign-up and offers a smooth, mobile-friendly UI for tracking expenses easily.
+# Spend Bunny
 
-FEATURES:
-✔ Authentication
+<p align="center">
+  <img src="https://img.shields.io/badge/Spend%20Bunny-Personal%20Expense%20Tracker-DB7093?style=for-the-badge&labelColor=FCE4EC" alt="Spend Bunny">
+</p>
 
-Email/password sign-in
+<p align="center">
+  A simple, intuitive way to keep track of your spending and stay aware of your finances.
+</p>
 
-New user registration
+<p align="center">
+  <a href="https://spend-bunny.vercel.app/">Live Demo</a>
+  &nbsp; · &nbsp;
+  <a href="https://github.com/doctorocty/Spend-Bunny">Source Code</a>
+</p>
 
-Firebase-powered secure login
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E8A0BF?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-D98AB5?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-C77D9A?style=flat-square&logo=javascript&logoColor=white" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Firebase-DB7093?style=flat-square&logo=firebase&logoColor=white" alt="Firebase">
+</p>
 
-“Forgot Password” support
+---
 
-✔ Expense Tracking
+## About
 
-Add, view, and manage expenses
+Spend Bunny is a lightweight, browser-based expense tracker designed to make everyday expense management simpler.
 
-Simple and clean interface
+Keeping track of spending can be difficult when purchases happen throughout the day. Spend Bunny provides a straightforward interface for recording expenses and managing your spending information in one place.
 
-Fully client-side application
+Built with HTML, CSS, vanilla JavaScript, and Firebase Authentication, the project focuses on a simple user experience without relying on a large frontend framework.
 
-✔ UI/UX
+## Features
 
-Custom CSS styling for a minimal, soft theme
+### User Authentication
 
-TECH STACK:
-HTML5
+Securely manage access to your personal workspace using Firebase Authentication.
 
-CSS3
+- Create an account with email and password.
+- Sign in to an existing account.
+- Access password recovery functionality.
 
-JavaScript (Vanilla)
+### Expense Tracking
 
-Firebase Authentication
+Keep a record of your everyday spending.
 
+- Add and manage expenses.
+- View recorded spending in one place.
+- Keep your expense information organized.
 
+### Simple User Interface
 
-Animated buttons and interactions
+Spend Bunny focuses on usability and a clean visual experience.
 
-Mobile-friendly layout
+- Minimal, custom-styled interface.
+- Interactive buttons and frontend elements.
+- Easy-to-navigate pages for authentication and expense management.
 
-**Installation and Setup**
+### Responsive Design
 
-Clone or download the repository.
+Access the application through a browser on supported desktop and mobile screen sizes.
 
-git clone <your-repository-link>
+## Tech Stack
 
+| Technology | Purpose |
+|---|---|
+| HTML5 | Page structure |
+| CSS3 | Styling, layouts, and visual design |
+| Vanilla JavaScript | Application logic and interactivity |
+| Firebase Authentication | User registration and sign-in |
+| Firebase SDK | Integration with Firebase services |
 
-Open the project folder in any code editor.
+The project uses core web technologies to keep the frontend lightweight and straightforward to understand.
 
-Run the project on a local server. This is required for Firebase scripts to work.
+## Getting Started
 
-Option A: VS Code Live Server
+Follow these steps to run Spend Bunny locally.
 
-Install the Live Server extension
+### Prerequisites
 
-Right-click index.html
+You will need:
 
-Select "Open with Live Server"
+- A modern web browser.
+- Git.
+- A code editor such as Visual Studio Code.
+- A Firebase project with Email/Password Authentication enabled.
 
-Option B: Node.js http-server
+### 1. Clone the repository
 
-npm install -g http-server
-http-server .
+```bash
+git clone https://github.com/doctorocty/Spend-Bunny.git
+```
 
+### 2. Open the project directory
 
-Add your Firebase configuration.
-Open firebase.js and replace the placeholder values with your own Firebase project keys:
+```bash
+cd Spend-Bunny
+```
 
+### 3. Configure Firebase
+
+Open `firebase.js` and configure it with the appropriate settings from your Firebase project.
+
+```javascript
 const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
   projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
   appId: "YOUR_APP_ID"
 };
+```
 
-firebase.initializeApp(firebaseConfig);
+Replace the placeholders with your project's configuration values.
 
+In the Firebase Console:
 
-In the Firebase console, enable Email/Password authentication.
-Go to Authentication → Sign-in methods → Enable Email/Password.
+1. Open Authentication.
+2. Navigate to Sign-in method.
+3. Enable Email/Password authentication.
+4. Configure any required authorized domains.
 
-Start the local server and open the link it provides (usually http://localhost:5500
-).
-The app will load in your browser.
+Never commit private service-account credentials or other secrets to your repository. Firebase client configuration is intended for client-side use, but access must still be protected through appropriate Firebase security rules and authorized-domain settings.
 
-Optional: To deploy using Firebase Hosting:
+### 4. Run the application locally
 
-firebase login
-firebase init
-firebase deploy
+Because the project uses browser-based Firebase scripts, serve the files through a local web server rather than relying on opening the HTML file directly.
+
+If you use Visual Studio Code, install the Live Server extension, open `index.html`, and select **Open with Live Server**.
+
+Alternatively, if you have Node.js installed, you can use:
+
+```bash
+npx http-server .
+```
+
+Open the local URL displayed in your terminal.
+
+## Project Structure
+
+```text
+Spend-Bunny/
+├── index.html       # Main application page
+├── style.css        # Main application styles
+├── script.js        # Application logic
+├── firebase.js      # Firebase configuration
+├── signin.html      # Sign-in page
+├── signin.js        # Sign-in logic
+├── signup.html      # Registration page
+├── auth.css         # Authentication page styles
+└── .gitignore       # Git ignore rules
+```
+
+This is a representative overview of the main files in the repository.
+
+## Future Improvements
+
+Potential areas for future development include:
+
+- Expense categories and filtering.
+- Monthly spending summaries.
+- Visual spending analytics.
+- Budget limits and spending alerts.
+- Exportable expense reports.
+- Additional interface customization.
+
+These are possible future enhancements, not a claim that they are already implemented.
+
+## Contributing
+
+Suggestions, bug reports, and improvements are welcome.
+
+1. Fork the repository.
+2. Create a branch for your changes.
+3. Implement and test your improvements.
+4. Commit your changes with a descriptive message.
+5. Open a pull request describing your contribution.
+
+## Author
+
+**Sarah Fatima Lari**
+
+- GitHub: [@doctorocty](https://github.com/doctorocty)
+- Portfolio: [View Portfolio](https://sarahs-portfolio-inky.vercel.app/)
+
+---
+
+<p align="center">
+  <sub>A simpler way to stay mindful of everyday spending.</sub>
+</p>
